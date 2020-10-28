@@ -15,8 +15,8 @@ He decidido escribir este libro debido a que considero que es una rama de la com
 | Algoritmo | Tarea | Tema | ![ ](https://img.shields.io/badge/C%C3%B3digo-octave-blue?style=for-the-badge&logo=octave) | ![ ](https://img.shields.io/badge/C%C3%B3digo-sklearn-brightgreen?style=for-the-badge&logo=python&logoColor=brightgreen) |
 | --- | --- | --- | --- |  --- |
 | Regresión lineal  | Regresión | [link](https://raw.githubusercontent.com/amr205/Introduccion-a-la-IA---Libro/master/main.pdf#section.8.5) | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.m) | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.ipynb) |
-| K - nearest neighbors  | Clasificación | aa | aa | aa |
-| Gaussian Naive Bayes  | Clasificación | aa | aa | aa |
+| K - nearest neighbors  | Clasificación | to-do | [link](./machine-learning/aprendizaje-supervisado/knn/knn.m) | aa |
+| Gaussian Naive Bayes  | Clasificación | to-do | [link](./machine-learning/aprendizaje-supervisado/naive-baye/naive_bayes.m) | aa |
 
 ----
 ### Algoritmos de aprendizaje no supervisado
