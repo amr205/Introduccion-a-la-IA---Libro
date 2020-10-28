@@ -1,6 +1,6 @@
 # Introducción a la Inteligencia Artificial
 #### Alejandro Medina Reyes
-![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/badge/Versi%C3%B3n-0.6-yellow) **Este libro aún no esta terminado**
+![](https://img.shields.io/badge/Versi%C3%B3n-0.6-yellow) **Este libro aún no esta terminado**
 
 ----
 [Descargar libro](https://github.com/amr205/Introduccion-a-la-IA---Libro/raw/master/main.pdf)
