@@ -2,11 +2,9 @@
 #### Alejandro Medina Reyes
 ![](https://img.shields.io/badge/Versi%C3%B3n-0.6-yellow) **Este libro aún no esta terminado**
 
-----
 [Descargar libro](https://github.com/amr205/Introduccion-a-la-IA---Libro/raw/master/main.pdf)
 
-
-He decidido escribir este libro debido a que considero que es una rama de la computación muy interesante, me gustaría aprender de estos temas y en un futuro trabajar en investigación relacionada con esta área, además estos últimos años se ha incrementado el interés por la inteligencia artificial.
+He decidido escribir este libro debido a que me apasiona la inteligencia artificial y en un futuro me gustaría desempeñarme investigando en temas relacionados a esta área. Además considero que el conocimiento debe ser libre y mediante este libro quiere aportar un poco para lograr que estos temas tan interesantes puedan ser aprendidos por cualquier persona que asi quiera.
 
 ----
 ### Algoritmos de aprendizaje supervisado
