@@ -14,7 +14,7 @@ He decidido escribir este libro debido a que considero que es una rama de la com
 
 | Algoritmo | Tarea | ![ ](https://img.shields.io/badge/C%C3%B3digo-octave-blue?style=for-the-badge&logo=octave) | ![ ](https://img.shields.io/badge/C%C3%B3digo-sklearn-brightgreen?style=for-the-badge&logo=python&logoColor=brightgreen) |
 | --- | --- | --- | --- |
-| Regresión lineal  | Regresión | aa | aa |
+| Regresión lineal  | Regresión | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.m) | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.ipynb) |
 | K - nearest neighbors  | Clasificación | aa | aa |
 | Gaussian Naive Bayes  | Clasificación | aa | aa |
 
