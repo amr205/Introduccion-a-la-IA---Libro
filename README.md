@@ -12,9 +12,10 @@ He decidido escribir este libro debido a que me apasiona la inteligencia artific
 
 | Algoritmo | Tarea | Tema | ![ ](https://img.shields.io/badge/C%C3%B3digo-octave-blue?style=for-the-badge&logo=octave) | ![ ](https://img.shields.io/badge/C%C3%B3digo-sklearn-brightgreen?style=for-the-badge&logo=python&logoColor=brightgreen) |
 | --- | --- | --- | --- |  --- |
-| Regresión lineal  | Regresión | [link](https://raw.githubusercontent.com/amr205/Introduccion-a-la-IA---Libro/master/main.pdf#section.8.5) 8.5.1 | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.m) | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.ipynb) |
-| Regresión polinomial  | Regresión | [link](https://raw.githubusercontent.com/amr205/Introduccion-a-la-IA---Libro/master/main.pdf#section.8.5) 8.5.2 | [link](./machine-learning/aprendizaje-supervisado/regresion-polinomial/regresion_polinomial.m) | [link](./machine-learning/aprendizaje-supervisado/regresion-polinomial/regresion_polinomial.ipynb) |
-| K - nearest neighbors  | Clasificación | to-do | [link](./machine-learning/aprendizaje-supervisado/knn/knn.m) | to-do |
+| Regresión lineal  | Regresión | [link](https://raw.githubusercontent.com/amr205/Introduccion-a-la-IA---Libro/master/main.pdf#subsection.8.5.1) 8.5.1 | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.m) | [link](./machine-learning/aprendizaje-supervisado/regresion-lineal/regresion_lineal.ipynb) |
+| Regresión polinomial  | Regresión | [link](https://raw.githubusercontent.com/amr205/Introduccion-a-la-IA---Libro/master/main.pdf#subsection.8.5.2) 8.5.2 | [link](./machine-learning/aprendizaje-supervisado/regresion-polinomial/regresion_polinomial.m) | [link](./machine-learning/aprendizaje-supervisado/regresion-polinomial/regresion_polinomial.ipynb) |
+| K - nearest neighbors  | Regresión | [link](https://raw.githubusercontent.com/amr205/Introduccion-a-la-IA---Libro/master/main.pdf#subsection.8.5.3) 8.5.3  | [link](./machine-learning/aprendizaje-supervisado/knn/knn_regresion.m) | to-do |
+| K - nearest neighbors  | Clasificación | to-do | [link](./machine-learning/aprendizaje-supervisado/knn/knn_clasificacion.m) | to-do |
 | Gaussian Naive Bayes  | Clasificación | to-do | [link](./machine-learning/aprendizaje-supervisado/naive-baye/naive_bayes.m) | to-do |
 
 ----
