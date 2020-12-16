@@ -1,8 +1,3 @@
----
-title: Libromd
-tags: []
----
-
 # Introducción a la Inteligencia Artificial
 #### Alejandro Medina Reyes
 ![](https://img.shields.io/badge/Versi%C3%B3n-0.6-yellow) **Este libro aún no esta terminado**
