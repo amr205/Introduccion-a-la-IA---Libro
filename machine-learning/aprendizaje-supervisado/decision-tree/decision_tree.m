@@ -207,7 +207,7 @@ endfunction
 # 'emp_length.< 1 year': 0,
 # 'emp_length.n/a': 0}
 
-#Create tree classifier
+#Create tree classifier---------------------------------------------------------
 test_data=[1,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0];
 decision_tree = decision_tree_create(dataset, features, 1, 0, 10);
 predicted = classify(decision_tree,test_data);
