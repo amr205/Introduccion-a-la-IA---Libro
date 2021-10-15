@@ -1,13 +1,16 @@
+
 # Ignore everything
 *
-
+/*/
 # But not these files...
 !.gitignore
-!machine-learning/**
-!output/**
-!Pictures/**
 !bibliography.bib
 !generateHTML.sh
 !generateMobi.sh
 !main.tex
 !structure.tex
+
+#And not these folders...
+!/machine-learning/
+!/output/
+!/Pictures/
