@@ -3,6 +3,7 @@
 ![](https://img.shields.io/badge/Versi%C3%B3n-0.6-yellow) **Este libro aún no esta terminado**
 
 [Descargar libro PDF](https://github.com/amr205/Introduccion-a-la-IA---Libro/raw/master/output/Introducción_a_la_inteligencia_artificial.pdf)
+[Leer aquí](https://amr205.github.io/Introduccion-a-la-IA---Libro/)
 
 He decidido escribir este libro debido a que me apasiona la inteligencia artificial y en un futuro me gustaría desempeñarme investigando en temas relacionados a esta área. Además considero que el conocimiento debe ser libre y mediante este libro quiere aportar un poco para lograr que estos temas tan interesantes puedan ser aprendidos por cualquier persona que asi quiera.
 
