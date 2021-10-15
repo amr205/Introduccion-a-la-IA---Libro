@@ -3,9 +3,9 @@
 
 # But not these files...
 !.gitignore
-!/machine-learning/
-!/output/
-!/Pictures/
+!/machine-learning/*
+!/output/*
+!/Pictures/*
 !bibliography.bib
 !generateHTML.sh
 !generateMobi.sh
