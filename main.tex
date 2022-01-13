@@ -139,9 +139,9 @@ Este libro busca explorar diversos temas del campo de la inteligencia artificial
 
 Primero quiero agradecer a mis padres ya que me han apoyado en todo mi desarrollo personal y académico, mis logros son un reflejo del gran ejemplo que me han dado y de lo mucho que han hecho por mi. Igualmente es importante reconocer el apoyo de mi hermana en las distintas actividades que he desempeñado y en los proyectos que me he propuesto.
 
-También quiero agradecer a mis maestros que me han enseñado mucho a lo largo de mi carrera de Ingeniería en Sistemas Computacionales, agradezco principalmente a aquellos que me han motivado a crecer y a perseguir mis sueños además de brindarme los conocimientos y herramientas del curso correspondiente. Entre mis maestros quiero darle las gracias especialmente a tres de ellos ya que sin su apoyo no creo que me hubiera decidido a hacer este libro <TODO-- pedirles autorización para ponerlos aquí>.
+También quiero agradecer a mis maestros que me han enseñado mucho a lo largo de mi carrera de Ingeniería en Sistemas Computacionales, agradezco principalmente a aquellos que me han motivado a crecer y a perseguir mis sueños además de brindarme los conocimientos y herramientas del curso correspondiente. Entre mis maestros quiero darle las gracias especialmente a tres de ellos: José Jesús Sánchez Farías, José Guillermo Fierro Mendoza y Patricia Galvan Morales ya que sin su apoyo no creo que me hubiera decidido a hacer este libro.
 
-Finalmente quiero darle gracias a mi esposa que me ha motivado a desarrollarme como persona y que siempre ha estado a mi lado dándome el impulso necesario para llevar a cabo este tipo de proyectos. 
+Finalmente quiero darle gracias a mi amada esposa que me ha motivado a desarrollarme como persona y que siempre ha estado a mi lado dándome el impulso necesario para llevar a cabo este tipo de proyectos. 
 
 %----------------------------------------------------------------------------------------
 %	PART
@@ -256,11 +256,15 @@ Un ejemplo de este tipo de desarrollos son los sistemas expertos, este paradigma
 
 \item Situado o reactivo: Toda conducta es resultado de una percepción, por lo cual éstas se tienen una conexión directa, condicionada o secuencial.
 
-\item Conexionista: Este paradigma corresponde a las redes neuronales artificiales (RNA) se definen modelos con entradas y salidas en los cuales se ajustan parámetros de la red mediante diferentes algoritmos de aprendizaje.
+\item Conexionista: Describe que los problemas pueden ser resueltos por unidades pequeñas interconectadas entre sí. Las unidades pueden ser neuronas, genes, agentes inteligentes, etc. Este paradigma corresponde a las redes neuronales artificiales (RNA) se definen modelos con entradas y salidas en los cuales se ajustan parámetros de la red mediante diferentes algoritmos de aprendizaje. Dentro de este paradigma también entran los algoritmos evolutivos y sistemas multiagentes.
 
 \item Híbrido: Para resolver diversos problemas existe la necesidad de integrar soluciones que corresponden a distintos paradigmas, por ello los sistemas híbridos son de gran utilidad para problemas reales.
 \end{enumerate}
 
+Yo añadiría el siguiente paradigma para abarcar también los modelos presentes en el aprendizaje automático:
+\begin{itemize}
+\item Basado en datos: Sistemas capaces de procesar datos utilizando modelos matemáticos y/o probabilísticos para resolver una tarea específica.
+\end{itemize}
 Una ventaja del paradigma simbólico es que es fácil interpretar lo que sucede dentro del sistema, en cambio en sistemas conexionistas suele ser complicado determinar las razones detrás de una decisión, sin embargo, actualmente se han desarrollado técnicas como Grad-CAM \cite{gradcam} que permiten reducir esta incertidumbre en el campo de clasificación de imágenes.
 
 
@@ -272,7 +276,7 @@ Una ventaja del paradigma simbólico es que es fácil interpretar lo que sucede 
 
 \chapterimage{chapter_head.pdf} % Chapter heading image
 
-\chapter{Busquedas inteligentes}
+\chapter{Búsquedas inteligentes}
 
 \section{Introducción al capítulo}\index{Introducción al capítulo}
 
@@ -359,17 +363,41 @@ Para ilustrar el funcionamiento de este algoritmo a continuación mostraré en i
 
 El algoritmo MINIMAX es un procedimiento recursivo, a continuación se presenta el pseudocódigo correspondiente, se recomienda al lector analizar como el siguiente pseudocódigo hace lo mismo que se describió con anterioridad.
 
-\begin{figure}[ht]
-\centering\includegraphics[width=14cm]{ia/Pseudocogido minimax.png}
-\caption{Pseudocódigo del algoritmo minimax}
-\label{fig:pseminimax} 
-\end{figure}
+
+\begin{algorithm}
+  \DontPrintSemicolon
+  \SetKwFunction{FMain}{MINIMAX}
+  
+  \SetKwProg{Fn}{Función}{:}{}
+  \Fn{\FMain{nodo, turnoMax}}{
+  		\eIf{esTerminal(nodo)}{
+  			funciónEvaluación(nodo)\;
+  			\KwRet nodo\;
+  		}{
+  			posiblesEstados = funciónSucesor(nodo)\;
+  			\ForEach{estado \textbf{in} posiblesEstados}{
+  				estado = MINIMAX(estado, not (turnoMax) )\;
+  				
+  			}
+  			\eIf{turnoMax}{
+	  			\KwRet max(posiblesEstados)\;
+	  		}{
+	  			\KwRet min(posiblesEstados)\;
+	  		}
+  			
+  		}
+  }
+  \;
+
+  \caption{Algoritmo MINIMAX}
+\end{algorithm}
+
 
 Es importante notar que dependiendo del “juego” sobre el cuál se esté aplicando este algoritmo varía la función de evaluación y la función sucesor, encargada de generar los nuevos estados.
 
 En el pseudocódigo descrito con anterioridad se generan todos los estados finales posibles, en el juego de gato esto no es un gran problema ya que el número de estados posibles es relativamente pequeño (alrededor de 362,800), sin embargo en otros juegos como el ajedrez este número es mucho más alto por lo cual se puede verificar a qué nivel de profundidad pertenece el nodo y si se ha llegado a ese límite establecido previamente evaluar el nodo aunque no sea un estado final, esto implica además el tener que generar funciones de evaluación más complejas ya que en ese punto no se puede saber con certeza si el jugador ganará o perderá.
 
-Otra nota importante es que en este pseudocódigo es en los nodos donde se determina si es el turno del maximizador o minimizador, esto también podría hacerse implementando un parámetro en la función y cambiando su estado cada que ésta fuese llamada.
+Otra nota importante es que en este pseudocódigo es en los nodos donde se almacena el resultado de la evaluación, esto también podría hacerse implementando una tupla (nodo, valor) y devolviendo esta estructura en la función MINIMAX.
 
 \begin{center}
 \line(1,0){420}
@@ -378,9 +406,11 @@ Otra nota importante es que en este pseudocódigo es en los nodos donde se deter
 \textbf{Ejercicio de programación:}
 
 Yo recomiendo realizar el siguiente ejercicio para fortalecer los conocimientos adquiridos:
-En cualquier lenguaje de programación programar una inteligencia artificial capaz de jugar gato utilizando el algoritmo Minimax.
+En cualquier lenguaje de programación programar una inteligencia artificial capaz de jugar gato utilizando el algoritmo Minimax. A continuación se presenta un enlace, se debe hacer una copia del notebook y seguir las instrucciones.
 
-(Ejemplo: \url{https://github.com/amr205/TicTacToe-AI---Minimax})
+(Ejercicio para completar: \url{https://colab.research.google.com/drive/1xX4vcx6G0Dj_9XW5cml_lOnZnLIPb65T?usp=sharing})
+
+(Ejemplo minimax web: \url{https://github.com/amr205/TicTacToe-AI---Minimax})
 
 
 \includegraphics[width=5cm]{Pictures/github/minimax.png}
@@ -393,11 +423,54 @@ El algoritmo Alpha-beta pruning tiene el objetivo de realizar la misma tarea que
 
 En este caso incluiré primero el pseudocódigo y posteriormente procederé a explicar el funcionamiento de este algoritmo.
 
-\begin{figure}[ht]
-\centering\includegraphics[width=13cm]{ia/ALPHA BETA pseudocódigo.png}
-\caption{Pseudocódigo del algoritmo alpha-beta pruning}
-\label{fig:pse-alph-beta} 
-\end{figure}
+\begin{algorithm}
+  \DontPrintSemicolon
+  \SetKwFunction{FMain}{AlphaBeta}
+  
+  \SetKwProg{Fn}{Función}{:}{}
+  \Fn{\FMain{nodo, turnoMax, alpha, beta}}{
+  		\eIf{esTerminal(nodo)}{
+  			funciónEvaluación(nodo)\;
+  			\KwRet nodo\;
+  		}{
+  			posiblesEstados = funciónSucesor(nodo)\;
+  			
+  			\eIf{turnoMax}{
+  				nodoMayor = nuevo Nodo\;
+  				nodoMayor.valor = - infinito\;
+  				
+  				\ForEach{estado \textbf{in} posiblesEstados}{
+	  				estado = AlphaBeta(estado, not(turnoMax), alpha, beta)\;
+	  				alpha = max(alpha, estado.valor)\;
+	  				nodoMayor = max(nodoMayor, estado)\;
+	  				\If{beta <= alpha}{
+	  					break
+	  				}
+	  			}
+	  			
+	  			\KwRet nodoMayor\;
+	  		}{
+	  			nodoMenor = nuevo Nodo\;
+  				nodoMenor.valor = infinito\;
+  				
+  				\ForEach{estado \textbf{in} posiblesEstados}{
+	  				estado = AlphaBeta(estado, not(turnoMax), alpha, beta)\;
+	  				beta = min(beta, estado.valor)\;
+	  				nodoMenor = min(nodoMenor, estado)\;
+	  				\If{beta <= alpha}{
+	  					break
+	  				}
+	  			}
+	  			\KwRet nodoMenor\;
+	  		}
+  			
+  		}
+  }
+  \;
+
+  \caption{Algoritmo Alpha-Beta Pruning}
+\end{algorithm}
+
 
 Se puede observar que el funcionamiento es muy similar al algoritmo Minimax pero se utilizan dos variables, alpha y beta. Se puede observar que alpha guardaría el mejor estado posible que el maximizador tiene, y beta el mejor estado posible para el minimizador, por la manera en la que se visitan los nodos cuando beta es menor o igual no tiene mucho sentido continuar revisando la rama ya que el jugador contrario ya tiene una mejor opción en un nivel superior.
 
