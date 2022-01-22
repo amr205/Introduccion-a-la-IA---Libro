@@ -1817,9 +1817,9 @@ Estas reglas de transformación nos permiten deducir nuevas proposiciones a part
 \hline
 	\makecell[l]{P \\P → Q\\----------\\Q} & [P $\Lambda$ (P → Q)] → Q & modus ponens\\
 \hline
-	\makecell[l]{Q \\P → Q\\-----------\\P} & [Q $\Lambda$ (P → Q)] → P & modus tollens\\
+	\makecell[l]{¬ Q \\P → Q\\-----------\\¬ P} & [¬ Q $\Lambda$ (P → Q)] → ¬ P & modus tollens\\
 \hline
-	\makecell[l]{P v Q \\P\\-----------\\Q} & [(P v Q) $\Lambda$ P] → Q & silogismo disyuntivo\\
+	\makecell[l]{P v Q \\¬ P\\-----------\\Q} & [(P v Q) $\Lambda$ ¬ P] → Q & silogismo disyuntivo\\
 \hline
 	\makecell[l]{P → Q \\Q → R\\-----------\\P → R} & [(P → Q) $\Lambda$ (Q → R)] → [P → R] & silogismo hipotético\\
 \hline

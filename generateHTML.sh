@@ -1,4 +1,4 @@
-pandoc main.tex -f latex --mathjax --toc --extract-media=pandocConversionMedia --number-sections -t html -s -o output/main.html --bibliography bibliography.bib --metadata title="El libro Azul de la Inteligencia Artificial" --citepro
+pandoc main.tex -f latex --mathjax --toc --extract-media=pandocConversionMedia --number-sections -t html -s -o output/main.html --bibliography bibliography.bib --metadata title="El libro Azul de la Inteligencia Artificial"
 
 sed -i 's:<p><span>-4ex -1ex -.4ex</span> <span>1ex .2ex </span> <span><strong></strong></span><span>\(.*\)</span></p>:<strong>\1</strong>:g' output/main.html
 
