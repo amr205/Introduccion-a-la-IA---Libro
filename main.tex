@@ -3993,6 +3993,56 @@ Ejercicio para fortalecer los conocimientos adquiridos:
 \url{https://github.com/amr205/Introduccion-a-la-IA---Libro}
 
 \subsection{Máquinas de vectores de soporte (SVM)} \index{Máquinas de vectores de soporte (SVM)}
+
+Una máquina de vectores de soporte es una tecnica de aprendizaje automático que puede utilizarse para resolver problems de clasificación, a diferencia de otros algoritmos las SVM buscan encontrar el hiperplano que separe los elementos maximizando el margen entre los elementos.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=10cm]{ia/svm_margin_example.png}
+\caption{En el lado izquierdo se muestran posibles hiperplanos que separan los datos, en el lado derecho se muestra el hiperplano que maximiza el margen entre los datos}
+
+\label{fig:svm_example_margin} 
+\end{figure}
+
+
+\textbf{Suposiciones del algoritmo}
+
+Este algoritmo se basa en la idea de que dado un conjunto de datos linealmente separables es posible encontrar el hiperplano que minimiza el margen entre el hiperplano y las instancias más cercanas (a estas instancias se les llama vectores de soporte).
+
+La manera en la cual se formula el modelo a partir de esta hipotesis y el proceso de optimización se sale del alcance de este libro debido a los requisitos para la deducción y descripción formal del módelo. Se motiva al lector que este interesado en el proceso que revise los siguientes contenidos.
+
+Lista de reproducción sobre algebra lineal:
+
+\url{https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab}
+
+Video donde se explica como se llega al módelo de SVM:
+
+\url{https://www.youtube.com/watch?v=_PwhiWxHK8o}
+
+Libro de alrededor de 100 páginas donde se explora a mayor detalle este algoritmo:
+
+\url{https://www.syncfusion.com/succinctly-free-ebooks/support-vector-machines-succinctly}
+
+\textbf{Descripción y evolución del modelo}
+
+El algoritmo básico de SVM (Hard margin) desarrollado en 1963 requiere que los datos sean linealmente separables y el modelo resultante es el siguiente:
+
+\begin{equation}
+\label{eqn:svm_basic}
+f(X) = sign(W \cdot  X + b)
+\end{equation}
+
+**Imagen donde se muestra un ejemplo de datos lineal y no linealmente separables**
+
+Es posible considerar un hiperparámetro durante el entrenamiento del algoritmo que busque un balance entre el margen y asegurarse de que todos los elementos sean clasificados correctamente. A esta variación del SVM se le conoce como Soft Margin y fue desarrollado en 1993.
+
+Una ventaja de las máquinas de vectores de soporte es la posibilidad de clasificar conjuntos de datos no linealmente separables utilizando una técnica llamada Kernel trick, esta técnica consiste en aplicar una función $\phi$ a cada instancia para llevarlas a un mayor espacio dimensional.
+
+Por esto el modelo final resulta de la siguiente manera:
+\begin{equation}
+\label{eqn:svm_basic}
+f(X) = sign(W \cdot  \phi(X) + b)
+\end{equation}
+
 %------------- ---------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
