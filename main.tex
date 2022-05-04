@@ -4031,9 +4031,16 @@ El algoritmo básico de SVM (Hard margin) desarrollado en 1963 requiere que los 
 f(X) = sign(W \cdot  X + b)
 \end{equation}
 
-**Imagen donde se muestra un ejemplo de datos lineal y no linealmente separables**
+**Ejemplo soft margin**
 
 Es posible considerar un hiperparámetro durante el entrenamiento del algoritmo que busque un balance entre el margen y asegurarse de que todos los elementos sean clasificados correctamente. A esta variación del SVM se le conoce como Soft Margin y fue desarrollado en 1993.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=12cm]{ia/svm_kernel_trick.png}
+\caption{Ejemplo de SVM usando el kernel $\phi(a, b) = (a, b, a2 + b2)$. By Shiyu Ji - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=60458994}
+
+\label{fig:svm_kernel_trick}
+\end{figure}
 
 Una ventaja de las máquinas de vectores de soporte es la posibilidad de clasificar conjuntos de datos no linealmente separables utilizando una técnica llamada Kernel trick, esta técnica consiste en aplicar una función $\phi$ a cada instancia para llevarlas a un mayor espacio dimensional.
 
