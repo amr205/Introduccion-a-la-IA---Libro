@@ -4024,14 +4024,17 @@ Libro de alrededor de 100 páginas donde se explora a mayor detalle este algorit
 
 \textbf{Descripción y evolución del modelo}
 
-El algoritmo básico de SVM (Hard margin) desarrollado en 1963 requiere que los datos sean linealmente separables y el modelo resultante es el siguiente:
+El algoritmo básico de SVM (Hard margin) desarrollado en 1963 requiere que los datos sean linealmente separables y el modelo resultante es el siguiente \cite{boswell2002introduction}:
 
 \begin{equation}
 \label{eqn:svm_basic}
 f(X) = sign(W \cdot  X + b)
 \end{equation}
 
-**Ejemplo soft margin**
+\begin{figure}[ht]
+\centering\includegraphics[width=10cm]{ia/svm_hard_vs_soft.png}
+\caption{Ejemplo de SVM Hard Margin (izquierda), SVM Soft Margin (derecha)}
+\end{figure}
 
 Es posible considerar un hiperparámetro durante el entrenamiento del algoritmo que busque un balance entre el margen y asegurarse de que todos los elementos sean clasificados correctamente. A esta variación del SVM se le conoce como Soft Margin y fue desarrollado en 1993.
 
@@ -4042,13 +4045,29 @@ Es posible considerar un hiperparámetro durante el entrenamiento del algoritmo 
 \label{fig:svm_kernel_trick}
 \end{figure}
 
-Una ventaja de las máquinas de vectores de soporte es la posibilidad de clasificar conjuntos de datos no linealmente separables utilizando una técnica llamada Kernel trick, esta técnica consiste en aplicar una función $\phi$ a cada instancia para llevarlas a un mayor espacio dimensional.
+Una ventaja de las máquinas de vectores de soporte es la posibilidad de clasificar conjuntos de datos no linealmente separables utilizando una técnica llamada Kernel trick, esta técnica consiste en aplicar una función $\phi$ a cada instancia para llevarlas a un mayor espacio dimensional \cite{boswell2002introduction}.
 
 Por esto el modelo final resulta de la siguiente manera:
 \begin{equation}
 \label{eqn:svm_basic}
 f(X) = sign(W \cdot  \phi(X) + b)
 \end{equation}
+
+\textbf{Usos de las máquinas de vectores de soporte}
+
+Las máquinas de soporte de vectores han tenido exito en diversas áreas como clasificación de texto o imágenes. Dada su flexibilidad usando el truco de kernel es posible aplicarlo en una amplia variedad de problemas. Debido a que se busca un buen hiperplano que maximize el margen estos modelos suelen generalizar adecuadamente.
+
+\textbf{Ejercicio de programación:}
+
+Ejercicio para fortalecer los conocimientos adquiridos:
+
+\begin{enumerate}
+\item En cualquier lenguaje de programación utilizar alguna librería como scikit-learn para resolver un problema de clasificación usando un árbol de decisión.
+\end{enumerate}
+
+\includegraphics[width=5cm]{Pictures/github/libro-ia.png}
+
+\url{https://github.com/amr205/Introduccion-a-la-IA---Libro}
 
 %------------- ---------------------------------------------------------------------------
 %	BIBLIOGRAPHY
