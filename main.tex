@@ -69,8 +69,8 @@
 \thispagestyle{empty} % Suppress headers and footers on the title page
 \begin{tikzpicture}[remember picture,overlay]
 \node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background.pdf}};
-\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering Inteligencia Artificial\\[15pt] % Book title
-{\Large Introducción}\\[20pt] % Subtitle
+\draw (current page.center) node [fill=ocre!30!white,fill opacity=0.6,text opacity=1,inner sep=1cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering El libro Azul de Inteligencia Artificial\\[15pt] % Book title
+{\Large 1era Edición}\\[20pt] % Subtitle
 {\huge Alejandro Medina Reyes}}}; % Author name
 \end{tikzpicture}
 \vfill
@@ -125,13 +125,11 @@
 
 \section{Prólogo}\index{Prólogo}
 
-De manera informal se puede definir a la inteligencia artificial como la simulación de comportamientos inteligentes por parte de un sistema informático.
-
-He decidido escribir este libro debido a que considero que es una rama de la computación muy interesante, además estos últimos años se ha incrementado el interés por la inteligencia artificial, ésto debido principalmente a dos factores, la gran cantidad de información disponible que combinada con técnicas de deep learning nos permite hacer predicciones o generalizaciones muy exactas y es el avance que hemos tenido tecnológicamente, siendo más preciso el desarrollo de potentes unidades de procesamiento gráfico, esto último es relevante ya que son capaces de trabajar eficazmente con operaciones de matrices que son ampliamente utilizadas por las redes neuronales.
+He decidido escribir este libro debido a que considero que es una rama de la computación muy interesante, además estos últimos años se ha incrementado el interés por la inteligencia artificial, debido principalmente a dos factores, la gran cantidad de información disponible que combinada con técnicas de deep learning nos permite hacer predicciones o generalizaciones muy exactas y el avance que hemos tenido tecnológicamente, siendo más preciso el desarrollo de potentes unidades de procesamiento gráfico, esto último es relevante ya que son capaces de trabajar eficazmente con operaciones de matrices que son ampliamente utilizadas por las redes neuronales.
 
 A pesar de ser un campo con muchos años de investigación pienso que no hay mejor momento para descubrir todo el potencial que ésta área nos ofrece y explorar cómo puede repercutir en el mundo que nos rodea.
 
-Este libro busca explorar diversos temas del campo de la inteligencia artificial con el fin de introducir diferentes paradigmas con los cuales se trabaja, muchos temas no son descritos a profundidad por lo cual a lo largo del libro trataré de colocar links a algunos recursos que puedan ser de utilidad para investigar más acerca de un tema en específico. Es importante tomar en cuenta que este libro debe ser tomando solo como una introducción a la inteligencia artificial.
+Este libro busca explorar diversos temas del campo de la inteligencia artificial con el fin de introducir diferentes paradigmas con los cuales se trabaja, revisando la parte conceptual y matemática, así como los usos de las diferentes técnicas.
 
 %------------------------------------------------
 
@@ -139,7 +137,7 @@ Este libro busca explorar diversos temas del campo de la inteligencia artificial
 
 Primero quiero agradecer a mis padres ya que me han apoyado en todo mi desarrollo personal y académico, mis logros son un reflejo del gran ejemplo que me han dado y de lo mucho que han hecho por mi. Igualmente es importante reconocer el apoyo de mi hermana en las distintas actividades que he desempeñado y en los proyectos que me he propuesto.
 
-También quiero agradecer a mis maestros que me han enseñado mucho a lo largo de mi carrera de Ingeniería en Sistemas Computacionales, agradezco principalmente a aquellos que me han motivado a crecer y a perseguir mis sueños además de brindarme los conocimientos y herramientas del curso correspondiente. Entre mis maestros quiero darle las gracias especialmente a tres de ellos: José Jesús Sánchez Farías, José Guillermo Fierro Mendoza y Patricia Galvan Morales ya que sin su apoyo no creo que me hubiera decidido a hacer este libro.
+También quiero agradecer a mis maestros que me han enseñado mucho a lo largo de mi carrera profesional, agradezco principalmente a aquellos que me han motivado a crecer y a perseguir mis sueños además de brindarme los conocimientos y herramientas del curso correspondiente. Entre mis maestros quiero darle las gracias especialmente a tres de ellos: José Jesús Sánchez Farías, José Guillermo Fierro Mendoza y Patricia Galvan Morales ya que sin su apoyo no creo que me hubiera decidido a hacer este libro.
 
 Finalmente quiero darle gracias a mi amada esposa que me ha motivado a desarrollarme como persona y que siempre ha estado a mi lado dándome el impulso necesario para llevar a cabo este tipo de proyectos. 
 
@@ -157,19 +155,23 @@ Finalmente quiero darle gracias a mi amada esposa que me ha motivado a desarroll
 
 \chapter{Historia de la inteligencia artificial}
 
+\section{Introducción}\index{Introducción - Historia de la IA}
+
+Considero interesante revisar primero un poco de la historia de la Inteligencia Artificial, ya que nos permite ponernos en contexto acerca del estado actual de esta ciencia y cómo llegamos a este punto. También siendo una ciencia con muchas vertientes podemos analizar cuales fueron los aciertos y fallas del pasado para considerarlos en los desarrollos actuales.
+
 \section{Ideas sobre inteligencia artificial}\index{Ideas sobre inteligencia artificial}
 
 El deseo del ser humano por entender la inteligencia y ser capaces de replicarla se remonta a la antigüedad, un ejemplo es la existencia de Talos en la mitología griega, un gigante de bronce que protegía a la Creta minoica de posibles invasores, la versión más dominante de su origen dice que Talos era un autómata creado por Hefesto (Dios del fuego y la forja).
 
-Ejemplos de autómatas antropomorfos son el robot de Leonardo da Vinci con la apariencia externa de una armadura, capaz de mover piernas y brazos. Otro ejemplo es el autómata creado por Pierre Jacques-Droz en 1774, su creación podía escribir una carta compuesta por 50 caracteres determinados por el usuario.
+Existen otros ejemplos de autómatas antropomorfos como el robot de Leonardo da Vinci con la apariencia externa de una armadura, capaz de mover piernas y brazos o el autómata creado por Pierre Jacques-Droz en 1774, su creación podía escribir una carta compuesta por 50 caracteres determinados por el usuario.
 
 %------------------------------------------------
 
 \section{Orígenes de la inteligencia artificial}\index{Orígenes de la inteligencia artificial}
 
-Si bien muchos consideran que el trabajo de Alan Turing “Computing Machinery and Intelligence” \cite{turing_compmach} dio inicio al campo de la inteligencia artificial me gustaría iniciar hablando del trabajo realizado por Warren McCulloch and Walter Pitts. En 1943 McCulloch, un neurocientífico, y Pitts, un lógico, publicaron "A logical calculus of the ideas immanent in nervous activity", aquí describieron un modelo de neurona que sentó las bases de lo que serían en un futuro las redes neuronales.
+Si bien muchos consideran que el trabajo de Alan Turing “Computing Machinery and Intelligence” \cite{turing_compmach} dio inicio al campo de la inteligencia artificial creo relevante mencionar primero el trabajo realizado por Warren McCulloch and Walter Pitts en 1943, ese año publicaron "A logical calculus of the ideas immanent in nervous activity", aquí describieron un modelo de neurona que sentó las bases de lo que serían en un futuro las redes neuronales (Técnicas ampliamente usadas en la actualidad).
 
-En el artículo publicado en 1950 Turing habló acerca del Test que lleva su nombre, mediante el cual en lugar de determinar si una máquina está “pensando”, tratamos de averiguar si es capaz de ganar en “el juego de la imitación” (Haciendo pensar a un ser humano que está hablando con otro humano), este trabajo fue de gran relevancia para el campo de la IA.
+Posteriormente en 1950 Turing publico el trabajo mencionado anteriormente donde habló acerca del Test que lleva su nombre, mediante el cual en lugar de determinar si una máquina está “pensando”, tratamos de averiguar si es capaz de ganar en “el juego de la imitación” (Haciendo pensar a un ser humano que está hablando con otro humano), este trabajo fue de gran relevancia para el campo de la IA. Además del Test de Turing se cuestiono acerca de si una máquina puede realmente pensar y escribío algunas ideas sobre el desarrollo de máquinas capaces de aprender, este articulo es una lectura que yo personalmente considero de suma importancia para aquellos interesados en esta área.
 
 \section{Nacimiento de la inteligencia artificial como ciencia}\index{Nacimiento de la inteligencia artificial como ciencia}
 
@@ -177,9 +179,9 @@ La conferencia de Dartmouth (“Dartmouth Summer Research Project on Artificial 
 
 En 1955 fue John McCarthy quien decidió organizar un grupo para estudiar la siguiente conjetura: cada aspecto del aprendizaje o característica de la inteligencia puede en principio ser descrito de manera tan precisa que una máquina pueda simularlo. A continuación muestro la propuesta de la conferencia \cite{DARTHMOUTH}: 
 
-“We propose that a 2-month, 10-man study of artificial intelligence be carried out during the summer of 1956 at Dartmouth College in Hanover, New Hampshire. The study is to proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it. An attempt will be made to find how to make machines use language, form abstractions and concepts, solve kinds of problems now reserved for humans, and improve themselves. We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer. ” 
+“We propose that a 2-month, 10-man study of artificial intelligence be carried out during the summer of 1956 at Dartmouth College in Hanover, New Hampshire. The study is to proceed on the basis of the conjecture that every aspect of learning or any other feature of intelligence can in principle be so precisely described that a machine can be made to simulate it. An attempt will be made to find how to make machines use language, form abstractions and concepts, solve kinds of problems now reserved for humans, and improve themselves. We think that a significant advance can be made in one or more of these problems if a carefully selected group of scientists work on it together for a summer.” 
 
-Es aquí donde de forma oficial se introduce el término Inteligencia Artificial. (Si bien es un término que ya se había utilizado fue aquí donde se popularizó y se convirtió en el término dominante).
+Es aquí donde de forma oficial se introduce el término Inteligencia Artificial. (Si bien es un término que ya se había utilizado fue aquí donde se popularizó y se convirtió en el término dominante). Entre aquellos que asistieron se encuentran el Dr. Marvin Minsky, Herbert A. Simon, Allen Newell, Ray Solomonoff, John Henry Holland, entre otros. En este evento se discutieron diferentes acercamientos para crear soluciones de Inteligencia Artificial, los asistentes mencionados terminaron teniendo un alto impacto en esta ciencia.
 
 \section{La edad de oro 1956-1974} \index{La edad de oro 1956-1974}
 
@@ -189,17 +191,17 @@ Entre los trabajos más relevantes se encuentran algoritmos que usan el paradigm
 
 \section{El primer invierno de la inteligencia artificial 1974-1980} \index{El primer invierno de la inteligencia artificial 1974-1980}
 
-Debido a las altas expectativas desarrolladas previamente hubo una gran decepción al ver que las promesas de la IA no se cumplían. Hubo un gran recorte en los presupuestos de investigación y el campo de las redes neuronales fue mayormente ignorado debido a las fuertes críticas de Minsky sobre las limitaciones del perceptrón.
+Debido a las altas expectativas desarrolladas previamente hubo una gran decepción al ver que las promesas de la Inteligencia Artificial no se cumplían. Hubo un gran recorte en los presupuestos de investigación y el campo de las redes neuronales fue mayormente ignorado debido a las fuertes críticas de Minsky sobre las limitaciones del perceptrón.
 
 \section{El boom de la inteligencia artificial 1980–1987} \index{El boom de la inteligencia artificial 1980–1987}
 
-La llegada de sistemas expertos (capaces de tomar decisiones como si fuese un experto humano mediante el uso de reglas lógicas) permitieron un nuevo boom en la IA gracias a su utilidad en las empresas.
+La llegada de sistemas expertos (capaces de tomar decisiones como si fuese un experto humano mediante el uso de reglas lógicas) permitieron un nuevo boom en la Inteligencia Artificial gracias a su utilidad en las empresas.
 
 Otro punto importante es el resurgimiento de las redes neuronales, gracias a las redes de Hopfield y el desarrollo del algoritmo de retropropagación.
 
 \section{El segundo invierno de la inteligencia artificial 1987-1993} \index{El segundo invierno de la inteligencia artificial 1987-1993}
 
-Durante este tiempo se dio otra reducción en las inversiones hacia el campo de la IA, sin embargo hubo avances principalmente en el campo de la robótica. Yo considero que una de las razones por las cuales tuvo lugar este segundo invierno de la IA son las desventajas o limitaciones de los sistemas expertos:
+Durante este tiempo se dio otra reducción en las inversiones hacia el campo de la IA, sin embargo hubo avances principalmente en el campo de la robótica. Personalmente considero que una de las razones por las cuales tuvo lugar este segundo invierno de la IA son las desventajas o limitaciones de los sistemas expertos:
 
 \begin{itemize}
 \item Existen tareas demasiado complejas, la necesidad de diseñar estas reglas de manera manual es una limitante.
@@ -209,7 +211,7 @@ Durante este tiempo se dio otra reducción en las inversiones hacia el campo de 
 
 \section{Siglo XXI} \index{Siglo XXI}
 
-Como mencione en el prólogo gracias a el aumento de potencia computacional y el acceso a grandes cantidades de información la IA ha visto grandes avances, entre los avances más notorios se encuentran las investigaciones y algoritmos de machine learning y deep learning.
+Como mencione en el prólogo gracias a el aumento de potencia computacional y el acceso a grandes cantidades de información la Inteligencia Artificial ha visto grandes avances, entre los avances más notorios se encuentran las investigaciones y algoritmos de machine learning y deep learning.
 
 \chapterimage{chapter_head.pdf} % Chapter heading image
 
@@ -220,8 +222,6 @@ Como mencione en el prólogo gracias a el aumento de potencia computacional y el
 Existen diferentes definiciones del término inteligencia artificial, de acuerdo a las ciencias de la computación la inteligencia artificial es el estudio de agentes inteligentes \cite{logical_approach}.
 
 Un agente inteligente es capaz de percibir su entorno y actuar sobre él tratando de optimizar algún objetivo, un agente es inteligente debido a que presenta características como el razonamiento o el aprendizaje.
-
-
 
 \begin{figure}[ht]
 \centering\includegraphics[width=7.5cm]{ia/Agente.png}
@@ -261,12 +261,15 @@ Un ejemplo de este tipo de desarrollos son los sistemas expertos, este paradigma
 \item Híbrido: Para resolver diversos problemas existe la necesidad de integrar soluciones que corresponden a distintos paradigmas, por ello los sistemas híbridos son de gran utilidad para problemas reales.
 \end{enumerate}
 
-Yo añadiría el siguiente paradigma para abarcar también los modelos presentes en el aprendizaje automático:
-\begin{itemize}
-\item Basado en datos: Sistemas capaces de procesar datos utilizando modelos matemáticos y/o probabilísticos para resolver una tarea específica.
-\end{itemize}
 Una ventaja del paradigma simbólico es que es fácil interpretar lo que sucede dentro del sistema, en cambio en sistemas conexionistas suele ser complicado determinar las razones detrás de una decisión, sin embargo, actualmente se han desarrollado técnicas como Grad-CAM \cite{gradcam} que permiten reducir esta incertidumbre en el campo de clasificación de imágenes.
 
+En la siguiente figura se muestran distintas categorías de técnicas de inteligencia artificial.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=13cm]{ia/ai_taxonomy.png}
+\caption{Clasificación de técnicas de inteligencia artificial}
+\label{fig:ai_taxonomy} 
+\end{figure}
 
 \part{Parte tres: Técnicas clásicas}
 
@@ -280,13 +283,11 @@ Una ventaja del paradigma simbólico es que es fácil interpretar lo que sucede 
 
 \section{Introducción al capítulo}\index{Introducción al capítulo}
 
-Antes de empezar a hablar directamente sobre estos temas relacionados principalmente con los grafos quiero hacer mención de un fenómeno descrito por John McCarthy “As soon as it works, no one calls it AI any more”; ésta frase me parece particularmente interesante debido a que la delimitación de los temas que comprenden la IA como ciencia no están perfectamente definidos, habrá autores que consideren estos temas como una rama de las estructuras de datos y no como parte de la IA.
+Antes de empezar a hablar directamente sobre estos temas relacionados principalmente con los grafos quiero hacer mención de un fenómeno descrito por John McCarthy “As soon as it works, no one calls it AI any more”; ésta frase me parece particularmente interesante debido a que la delimitación de los temas que comprenden la inteligencia artificial como ciencia no están perfectamente definidos, habrá autores que consideren estos temas como una rama de las estructuras de datos y no como parte de esta ciencia.
 
-En los inicios de la inteligencia artificial era sorprendente cuando una máquina lograba algo remotamente inteligente y el asombro llevaba a generar altas expectativas del alcance de esta ciencia. Hoy en día quizá no se vea como algo tan sorprendente pero debido a que algunos de estos algoritmos nacieron siendo parte de la IA he decidido dedicarle una pequeña sección.
+En los inicios de la inteligencia artificial era sorprendente cuando una máquina lograba algo remotamente inteligente y el asombro llevaba a generar altas expectativas del alcance de esta ciencia. Hoy en día quizá no se vea como algo tan sorprendente pero debido a que algunos de estos algoritmos nacieron siendo parte de la inteligencia artificial he decidido dedicarle una pequeña sección.
 
-Como último comentario respecto a esto quiero mencionar a Deep Blue, primera máquina capaz de vencer a un campeón mundial de ajedrez, esta computadora utiliza un algoritmo que en realidad no es tan inteligente como en principio aparenta, más adelante en este capítulo veremos a más detalle parte de su funcionamiento.
-
-No profundizaré en este tema, sin embargo a continuación proporcionaré un link a el libro inteligencia artificial: introducción y tareas de búsqueda de Roberto J. de la Fuente López. (\url{http://www.aconute.es/iartificial/documentos/ia_intro_busqueda.pdf })
+En este capítulo no profundizaré en las diversas técnicas de búsquedas inteligentes, en cambio revisaremos un ejemplo fuertemente ligado a la historia de la inteligencia artificial; sin embargo a continuación proporcionaré un link a el libro inteligencia artificial: introducción y tareas de búsqueda de Roberto J. de la Fuente López. (\url{http://www.aconute.es/iartificial/documentos/ia_intro_busqueda.pdf }) para aquellos que deseen abordar de una manera más amplia el tema.
 
 \section{¿Qué es una búsqueda inteligente?} \index{¿Qué es una búsqueda inteligente?}
 
@@ -296,7 +297,7 @@ Una búsqueda inteligente es aquel algoritmo que nos permita recorrer una estruc
 
 Son famosos los juegos entre Garry Kasparov y Deep blue, antes de ver el funcionamiento de esta computadora veremos un poco de la historia de estos encuentros.
 
-Creo que es poco mencionado el hecho de que Kasparov ganó la primera partida en 1996, se dieron seis juegos de los cuales 2 fueron ganados por Kasparov y uno por Deep Blue, el otro terminó en empate. (Link de la victoria de Kasparov sobre Deep Blue: \url{http://hemeroteca.abc.es/nav/Navigate.exe/hemeroteca/madrid/abc/1996/02/19/084.html })
+Es poco mencionado el hecho de que Kasparov ganó la primera partida en 1996, se dieron seis juegos de los cuales 3 fueron ganados por Kasparov y uno por Deep Blue, los otros terminaron en empate. (Link de la victoria de Kasparov sobre Deep Blue: \url{http://hemeroteca.abc.es/nav/Navigate.exe/hemeroteca/madrid/abc/1996/02/19/084.html })
 
 En la partida de 1997 Deep Blue derrotó a Kasparov, este último ganó un solo juego y Deep Blue ganó 2, los otros 3 quedaron en empate. Algo interesante es el hecho de que Kasparov acusó de hacer trampa a IBM \cite{hsu2004behind} después del segundo juego ya que mostraba signos de inteligencia o creatividad, IBM negó esto y dijo que solo se había dado intervención humana entre los juegos (lo cual estaba permitido en las reglas acordadas).
 
@@ -588,7 +589,7 @@ Al momento de hablar sobre la representación de los individuos de la población
 \label{fig:dif-gen-fen} 
 \end{figure}
 
-Es importante hacer notar que los genes no tienen que ser de tipo binario, un carácter o un elemento de alguna estructura (como un árbol) puede ser un gen por sí mismo.
+Es importante hacer notar que los genes no tienen que ser de tipo binario; un carácter o un elemento de alguna estructura (como un árbol) puede ser un gen por sí mismo.
 
 Generalmente la población inicial es creada con valores al azar, un parámetro importante que el desarrollador debe determinar es el tamaño de la población ya que si el número es muy reducido no se tendrá suficiente variación y es posible que los individuos nunca sobrepasen un óptimo local, también se debe evitar poblaciones muy grandes para evitar la redundancia y para reducir el tiempo necesario para llegar a una solución adecuada.
 
@@ -2367,7 +2368,6 @@ Hoy en día el machine learning ha sido aplicado en una variedad de ámbitos de 
 \begin{itemize}
 \item Procesamiento del lenguaje natural
 \item Computer vision (Procesamiento de imágenes)
-\item Detección de amenazas terroristas
 \item Evaluación de clientes
 \item Sistemas de recomendación
 \item Sistemas de detección de anomalías
@@ -2440,150 +2440,13 @@ En la especialización de machine learning realizado por la Universidad de Washi
 
 Se invita al lector a identificar los elementos aquí descritos en el tema UCS (LCS con aprendizaje supervisado) de este libro.
 
-Antes de revisar algunos de los diferentes algoritmos de aprendizaje vamos a identificar que es el overfitting, algunas técnicas para resolver este problema y una rutina de optimización que nos permitirá aprender los parametros $W$ de nuestros modelos. Es por esto que se motiva al lector entender claramente las partes y procesos que forman parte del aprendizaje supervisado presente en la figura \ref{fig:Aprendizaje-supervisado-diagrama}.
+Antes de explorar algunos de los diferentes algoritmos de aprendizaje vamos a revisar una rutina de optimización que nos permitirá aprender los parametros $W$ de nuestros modelos. Es por esto que se motiva al lector entender claramente las partes y procesos que forman parte del aprendizaje supervisado presente en la figura \ref{fig:Aprendizaje-supervisado-diagrama}.
 
 \clearpage
 
-\section{Overfitting y underfitting} \index{Overfitting y underfitting}
-
-Cuando se entrenan diferentes modelos para desempeñar las tareas de clasificación o regresión es probable que nos encontremos con problemas de overfitting o underfitting.
-
-\textbf{Overfitting}
-
-El problema de overfitting se presenta cuando el modelo se ha ajustado demasiado bien a los datos con los cuales fue entrenado (Aprendiendo incluso el ruido presente en nuestros datos de entrenamiento), por lo cual su capacidad de generalización \footnote{ La generalización es la capacidad de desempeñarse exitosamente las tareas de clasificación o regresión en datos que el modelo no ha observado. } es bastante mala.
-
-\textbf{Ruido vs Señal}
-
-La señal es la función o patrón "verdadera" que pretendemos extraer de nuestros datos. El ruido presente en los datos se puede dar por errores durante la medición, aleatoriedad presente en los datos o valores atípicos (Outliers) \footnote{ Los valores atípicos (Outliers) son aquellos valores que difieren significativamente del resto de los datos o que no pertenecen al dataset. }.
-
-
-\begin{figure}[ht]
-\centering\includegraphics[width=13cm]{ia/overfitting.png}
-\caption{Dos modelos con los mismos datos de entrada. (Izquierda) Modelo con overfitting, (Derecha) Modelo ajustado correctamente.}
-
-\label{fig:overfitting} 
-\end{figure}
-
-\textbf{Underfitting}
-
-Este es el problema contrario al overfitting, se da cuando nuestro modelo no es lo suficientemente expresivo para representar la relación entre los datos de entrada X y los datos de salida Y. En este caso nuestro modelo no se desempeña bien ni siquiera en nuestro set de entrenamiento.
-
-\begin{figure}[ht]
-\centering\includegraphics[width=13cm]{ia/underfitting.png}
-\caption{Dos modelos con los mismos datos de entrada. (Izquierda) Modelo con underfitting, (Derecha) Modelo ajustado correctamente.}
-
-\label{fig:underfitting} 
-\end{figure}
-
-\FloatBarrier
-\textbf{¿Cómo detectar el overfitting o el underfitting?}
-
-Posteriormente en la parte TODO de este libro se tratan formas más avanzadas de detectar el overfitting o underfitting, por ahora basta con evaluar nuestros modelos (tema que se explorará más adelante en este capítulo) en el set de entrenamiento y el set de prueba.
-
-De manera general si nuestro desempeño en el set de entrenamiento es mucho mejor que nuestro desempeño en el set de prueba nuestro modelo tiene una alta probabilidad de sufrir overfitting.
-
-En cambio si nuestro desempeño en el set de entrenamiento y el set de prueba es bajo es probable que nuestro modelo sufra de underfitting.
-
-\textbf{¿Cómo combatir el overfitting?}
-
-A continuación se describen de manera general algunas maneras de prevenir el overfitting en nuestro modelo, algunos de estos temas serán tratados con más profundidad más adelante en el libro:
-
-\begin{itemize}
-\item \textbf{Recolectar más datos: } Usar más datos para el entrenamiento suele ayudar para mejorar la capacidad de generalización de nuestro modelo, sin embargo esto suele ser bastante costoso por lo cual se recomienda primero probar con otras maneras de combatir el overfitting.
-
-\item \textbf{Remover características o atributos en nuestros datos: } Si nuestro modelo tiene acceso a datos que no son relevantes para el problema es más fácil que nuestro modelo presente overfitting. Se puede hacer manualmente o utilizar algoritmos diseñados precisamente para realizar esta tarea.
-
-Por ejemplo supongamos que tenemos que predecir que fruta estamos analizando en base a una serie de características (color, altura, anchura, peso y hora del análisis), en este caso la última característica no es relevante, si la persona encargada siempre analizará las manzanas en la noche, un modelo con overfitting "pensaría" que una fruta analizada en la mañana no puede ser una manzana.
-
-\item \textbf{Early stopping: } Cuando se entrene el modelo con algoritmos de aprendizaje iterativos es posible medir el desempeño en cada iteración, por ende podría detenerse el proceso de aprendizaje cuando nuestro modelo deje de generalizar exitosamente y empiece a presentar overfitting.
-
-Esta técnica no suele recomendarse debido a que durante el entrenamiento se suele buscar minimizar o maximizar una función, si se usa early stopping esto deja de ser verdadero por lo cual es recomendable utilizar otras técnicas.
-
-\item \textbf{Regularización: } Estas técnicas fuerzan a nuestro modelo a ser más simple reduciendo el problema de overfitting en modelos complejos. La regularización es una de las maneras más recomendadas para combatir este problema.
-
-\end{itemize}
-
-Los modelos más complejos suelen tener predisposición al overfitting, y los modelos más simples al underfitting. 
-
-Algunos modelos y algoritmos de aprendizaje tienen sus propios parámetros, mediante el uso de un set de validación se pueden ajustar estos parámetros para evitar el overfitting o el underfitting.
-
-\section{Técnicas de regularización} \index{Técnicas de regularización}
-
-\subsection{Regularización L2 (Ridge penalisation)} \index{Regularización L2}
-
-Los modelos con overfitting suelen tener valores muy altos en sus parámetros, por lo cual al penalizar valores muy altos en los mismos se puede regularizar el modelo.
-
-La fórmula correspondiente a una función de coste J con regularización L2 es la siguiente:
-
-\begin{equation}
-J(X,Y,\theta) = cf(X,Y,\theta) + \lambda \sum_{j=1}^{n} {\theta_{j}}^{2}
-\end{equation}
-
-Donde:
-
-\begin{tabular}{l}
-	X son los atributos de nuestro set de entrenamiento\\
-	Y son las etiquetas o variable a predecir de nuestro set de entrenamiento\\
-	$\theta$ son los atributos del modelo\\
-	$cf(X,Y,\theta)$ es la función de coste o error sin regularizar de nuestro modelo\\
-	$\lambda$ es un parámetro que controla el nivel de regularización aplicado al modelo\\
-
-\end{tabular}
-
-La regularización de tipo L2 tiende a disminuir el valor de los parámetros del modelo sin llegar a fijar algunos en 0, en la figura \ref{fig:l2_regularization} se presenta un modelo de regresión polinomial de grado 9, aplicando distintos valores en $\lambda$ se puede apreciar el efecto resultante. 
-
-
-\begin{figure}[ht]
-\centering\includegraphics[width=12cm]{ia/l2_regularization.png}
-\caption{Ejemplo de una regresión polinomial de grado 9 con regularización L2, en cada figura se puede observar el valor de $\lambda$.}
-
-\label{fig:l2_regularization} 
-\end{figure}
-
-\FloatBarrier
-
-Cuando se tienen muchas características, la regularización l2 tiende a funcionar de una manera aproximada a lo que se muestra en la figura.
-
-\begin{figure}[ht]
-\centering\includegraphics[width=13cm]{ia/l2_weights.png}
-\caption{Forma general en el cambio de los pesos de un modelo de acuerdo al cambio del valor de $\lambda$ en regularización l2.}
-
-\label{fig:l2_weights} 
-\end{figure}
-
-\subsection{Regularización L1 (Lasso penalisation)} \index{Regularización L1}
-
-
-La fórmula correspondiente a una función de coste J con regularización L1 es la siguiente:
-
-\begin{equation}
-J(X,Y,\theta) = cf(X,Y,\theta) + \lambda \sum_{j=1}^{n} | {\theta_{j}} |
-\end{equation}
-
-Donde:
-
-\begin{tabular}{l}
-	X son los atributos de nuestro set de entrenamiento\\
-	Y son las etiquetas o variable a predecir de nuestro set de entrenamiento\\
-	$\theta$ son los atributos del modelo\\
-	$cf(X,Y,\theta)$ es la función de coste o error sin regularizar de nuestro modelo\\
-	$\lambda$ es un parámetro que controla el nivel de regularización aplicado al modelo\\
-
-\end{tabular}
-
-La principal diferencia con regularización l2 es la manera en la cual disminuyen los pesos, ya que como se muestra en la figura \ref{fig:l1_weights} al aumentar el valor de $\lambda$ se van fijando en 0, por esta razón este tipo de regularización es usada para el proceso de selección de características, descartando aquellas que sean menos relevantes.
-
-\begin{figure}[ht]
-\centering\includegraphics[width=13cm]{ia/l1_weights.png}
-\caption{Forma general en el cambio de los pesos de un modelo de acuerdo al cambio del valor de $\lambda$ en regularización l1.}
-
-\label{fig:l1_weights} 
-\end{figure}
-
-\FloatBarrier
 \section{Descenso del gradiente} \index{Descenso del gradiente}
 
-En esta sección examinaremos el funcionamiento básico de la rutina de optimización llamada descenso del gradiente, esta rutina tiene diversas variantes y algunas implementaciones más complejas que pretenden mejorarla sin embargo en este capitulo nos centraremos en la más simple y dejaremos los demás temas para la siguiente parte de este libro.
+En esta sección examinaremos el funcionamiento básico de la rutina de optimización llamada descenso del gradiente, esta rutina tiene diversas variantes y algunas implementaciones más complejas que pretenden mejorarla sin embargo en este capitulo nos centraremos en la más simple.
 
 \textbf{¿Porqué este tema se encuentra en esta sección del libro?}
 
@@ -2593,7 +2456,7 @@ Al inicio puede parecer un poco contra intuitivo el revisar este tema antes de v
 
 El descenso del gradiente es una manera de minimizar una función objetivo (referido como criterio de optimización en la introducción del capítulo) J($\theta$) donde los parámetros del modelo $\theta \in \mathbb{R}^{d}$ son ajustados de manera iterativa en la dirección contraria al gradiente de la función objetivo respecto a los parámetros $\nabla _{\theta} J(\theta)$ \cite{ruder2017overview}.
 
-Esta definición formal es bastante adecuada una vez se entienden los conceptos que se están utilizando, es por ello que vamos a revisar el funcionamiento de esta rutina de optimización de la manera más simple posible.
+Esta definición formal es bastante adecuada una vez se entienden los conceptos que se están utilizando, sin embargo puede carecer de sentido antes de entender lo que esta realizando conceptualmente, por ello a continuación vamos a revisar los diferentes elementos descritos.
 
 \underline{Función objetivo $J(\theta)$}
 
@@ -2622,9 +2485,7 @@ Cuando nosotros empezamos el entrenamiento iniciamos con valores aleatorios de $
 
 En el caso presentado en la figura \ref{fig:cost_function_min_init} solo tenemos un parámetro $\theta$ por lo cual mediante el uso de una derivada podemos obtener la pendiente e ir en la dirección contraria para irnos acercando al valor de $\theta$ que minimize $J(\theta)$.
 
-Recordemos que la derivada de la función en un punto marcado es equivalente a la pendiente de la recta tangente.
-
-De esta manera al calcular la derivada de $J(\theta)$ respecto a $\theta$ podemos obtener la dirección hacia la cual debemos llevar nuestro valor $\theta$ para minimizar la función.
+Recordemos que podemos entender una derivada $dy/dx$ de una función $y=f(x)$ como una razón de cambio respecto a la variable x (visualizada como una tangente en el punto que se deriva, o la pendiente de la función en un punto determinado), entonces de esta manera al calcular la derivada de $J(\theta)$ respecto a $\theta$ podemos obtener la dirección hacia la cual debemos llevar nuestro valor $\theta$ para minimizar la función.
 
 \begin{figure}[ht]
 \centering\includegraphics[width=7cm]{ia/cost_function_der.png}
@@ -2653,7 +2514,9 @@ Esta rutina de optimización en su forma más básica (Descenso del gradiente po
 Donde: 
 
 \begin{tabular}{l}
-\makecell[l]{$\alpha$ es un parámetro de la rutina de optimización llamado tasa de aprendizaje (learning rate) que \\ controla que tan grande es la actualización de los parámetros.}
+\makecell[l]{$\alpha$ es un parámetro de la rutina de optimización llamado tasa de aprendizaje (learning rate) que \\ controla que tan grande es la actualización de los parámetros.} \\
+\makecell[l]{$\theta$ es el vector de parametros.} \\
+\makecell[l]{$\nabla _{\theta} J(\theta)$ es el gradiente de la función de costo respecto a los parámetros.} \\
 \end{tabular}
 
 Es importante no usar valores muy grandes de $\alpha$ ya que podríamos no llegar a ningún mínimo local, sin embargo valores muy bajos de $\alpha$ harán que tardemos mucho en llegar al mínimo. Más adelante dentro del tema de machine learning se verán algunas técnicas para ajustar los parámetros de nuestros algoritmos de aprendizaje. Para finalizar este tema me gustaría mostrar la siguiente imagen sacada del curso de Machine Learning en Coursera impartido por Andrew Ng.
@@ -2665,6 +2528,106 @@ Es importante no usar valores muy grandes de $\alpha$ ya que podríamos no llega
 \label{fig:cost_function_der_two_params} 
 \end{figure}
 
+\textbf{Variaciones del descenso del gradiente}
+
+A continuación se listan distintas variaciones de esta rutina de optimización para que al momento de estar aplicando este tipo de algoritmos en la vida real cuando el lector se encuentre con dichas variaciones tenga un lugar para consultar sus diferencias, así como revisar sus ventajas y desventajas. Si es tu primera vez leyendo este libro recomiendo continuar con la siguiente sección y volver al terminar el cápitulo.
+
+\begin{itemize}
+
+\item \textbf{Batch gradient descent}: Versión básica de esta rutina de optimización, se utilizan todos los elementos del conjunto de datos para calcular el gradiente.
+\begin{equation}
+\label{eqn:batch_gradient_descent}
+\theta = \theta - \alpha \cdot  \nabla _{\theta} J(\theta)
+\end{equation}
+
+\item \textbf{Stochastic Gradient Descent (SGD):}: En esta variante del descenso del gradiente se actualiza el valor de los parametros calculando el gradiente para cada uno de los elementos en el conjunto de datos.
+\begin{equation}
+\label{eqn:stochastic_gradient_descent}
+\theta = \theta - \alpha \cdot  \nabla _{\theta} J_{i}(\theta)
+\end{equation}
+Donde:
+
+\begin{tabular}{l}
+\makecell[l]{$\nabla _{\theta} J_{i}(\theta)$ es el gradiente de la función de costo respecto a los parámetros en un solo \\elemento del conjunto de datos seleccionado al azar.} \\
+\end{tabular}
+
+\underline{Ventajas:}
+Ayuda a lograr una convergencia más rápida cuando el conjunto de datos es muy grande.
+
+\underline{Desventajas:}
+Debido a las altas variaciones en cada actualización de valores en los parámetros es posible que no converja en un optimo global .
+\\
+
+\item \textbf{Mini-batch Gradient Descent:}: En esta variante del descenso del gradiente se actualiza el valor de los parametros calculando el gradiente en un subconjunto aleatorio de tamaño m del conjunto de datos.
+\begin{equation}
+\label{eqn:mini_batch_gradient_descent}
+\theta = \theta - \alpha \cdot   \frac{1}{m} \sum_{i=1}^{n}  \nabla _{\theta} J_{i}(\theta)
+\end{equation}
+\underline{Ventajas:}
+Otorga un balance entre costo computacional y velocidad, puede ser utilizado en conjuntos de datos grandes.
+
+\underline{Desventajas:}
+Es necesario elegir el valor de $m$ para el subconjunto de datos.
+\\
+
+\item \textbf{Momentum Gradient Descent:}: En esta variante se añade ``momento'' a la actualización de los parámetros.
+\begin{equation}
+\label{eqn:momentum_gradient_descent}
+\begin{split}
+v_{t} &= \gamma v_{t-1} + \alpha \cdot  \nabla _{\theta} J(\theta_{t-1})
+\\
+\theta_{t} &= \theta_{t-1} - v_{t+2}
+\end{split}
+\end{equation}
+Donde:
+
+\begin{tabular}{l}
+\makecell[l]{$v_{t}$ es el vector de velocidad en la iteración $t$.} \\
+\makecell[l]{$\gamma$ es el coeficiente de momento, este hiperparámetro controla la contribución del \\
+vector de velocidad anterior.} \\
+\end{tabular}
+
+\underline{Ventajas:}
+En funciones con mucho ruido o curvatura ayuda a evitar que se converja en un óptimo local.
+
+\underline{Desventajas:}
+Si el valor de $\gamma$ es grande el vector de parámetros puede oscilar alrededor del valor óptimo (local o global).
+\\
+
+\item \textbf{Adagrad}: En esta variante el valor de la tasa de aprendizaja se adapta para cada parametro basado en el valor historico del gradiente. Parametros con un valor grande en el gradiente tienen una tasa de aprendizaje reducida, aquellos con un valor pequeño en el gradiente tienen una tasa de aprendizaje aumentada.
+
+\underline{Ventajas:}
+En funciones con parametros en diferentes escalas ayuda a acelerar la convergencia en un valor optimo.
+
+\underline{Desventajas:}
+Debido a que reduce la tasa de aprendizaje con valores grandes en el historico del gradiente, el aprendizaje puede llegar a detenerse antes antes de converger en un óptimo
+\\
+
+\item \textbf{RMSProp}: Al igual que en Adagrad el valor de la tasa de aprendizaja se adapta, sin embargo en lugar de usar el valor historico del gradiente, usa una ventana en movimiento del promedio del cuadrado de los gradientes
+
+\underline{Ventajas:}
+En funciones con parametros en diferentes escalas ayuda a acelerar la convergencia en un valor optimo.
+
+\underline{Desventajas:}
+Debido a que reduce la tasa de aprendizaje con valores grandes en el historico del gradiente, el aprendizaje puede llegar a detenerse antes antes de converger en un óptimo. Es necesario encontrar un valor óptimo para los hiperparámetros.
+\\
+
+\item \textbf{Adam}: Combina las ideas de Adagrad y RMSProp de una manera eficiente.
+
+\underline{Ventajas:}
+Tiene buenos resultados en un amplio rango de problemas donde se usen redes neuronales. El valor por defecto de los hiperparámetros suele funcionar adecuadamente.
+
+\underline{Desventajas:}
+Es necesario encontrar un valor óptimo para los hiperparámetros.
+\\
+
+\end{itemize}
+
+Es fácil entender la necesidad de variantes como SGD o Mini-Batch, ya que en conjuntos de datos grandes no es realisticamente posible usar la versión básica del descenso del gradiente. Intuitivamente podemos comprender que al introducir momento en la rutina de optimización evitamos quedarnos atascados en un óptimo local. Es más complicado obtener la intuición de las razones por las cuales variantes como Adagrad y RMSProp son útiles para acelerar la convergencia en un valor óptimo, yo recomiendo ver los primeros minutos de la siguiente lección para entender conceptualmente sus beneficios.
+
+\href{https://www.youtube.com/watch?v=_e-LFe_igno&t=392s&ab_channel=DeepLearningAI}{RMS Prop (C2W2L07)}
+
+En la práctica se suele utilizar Adam u otras variantes modernas debido a que suelen comportarse bien en un amplio rango de problemas.
 
 \section{Regresión} \index{Regresión}
 
@@ -2802,46 +2765,6 @@ Por ende la actualización de los parámetros quedaría de la siguiente forma:
 \theta = \theta - \alpha \cdot \frac{1}{n} \left ( X' (\hat{Y}-Y ) \right )
 \end{equation}
 
-\textbf{Ridge Regression}
-
-Para implementar regresión lineal con regularización L2 basta con modificar la función de coste de la siguiente manera:
-
-\begin{equation}
-\label{eqn:mean_squared_error_modified_l2}
-J(\beta)=\frac{1}{2n} \sum_{i=1}^{n}\left (\hat{Y} - Y  \right )^{2} + \lambda \sum_{j=1}^{n} {\beta_{j}}^{2}
-\end{equation}
-
-Por lo cual, la actualización de los pesos sería la siguiente:
-
-\begin{equation}
-\label{eqn:linear_regression_gradient_descent_l2}
-\beta = \beta - \alpha \cdot \frac{1}{n} \left ( X' (\hat{Y}-Y ) + 2 \lambda \beta \right )
-\end{equation}
-
-\textbf{Lasso Regression}
-
-Para implementar regresión lineal con regularización L1 tenemos que modificar la función de coste de la siguiente manera:
-
-\begin{equation}
-\label{eqn:mean_squared_error_modified_l1}
-J(\beta)=\frac{1}{2n} \sum_{i=1}^{n}\left (\hat{Y} - Y  \right )^{2} + \lambda \sum_{j=1}^{n} {|\beta_{j}|}
-\end{equation}
-
-En este caso la actualización de los pesos dependerá del valor de $\beta_{j}$
-
-\begin{equation}
-\label{eqn:linear_regression_gradient_descent_l1}
-    \beta_j= 
-\begin{dcases}
-    \beta_j - \alpha \cdot \frac{1}{n} \left ( X_j (\hat{Y}-Y ) + \lambda \right ),& \text{si } \beta_j \geq 0\\
-    \beta_j - \alpha \cdot \frac{1}{n} \left ( X_j (\hat{Y}-Y ) - \lambda \right ),              & \text{si } \beta_j < 0
-\end{dcases} 
-\end{equation}
-
-\begin{center}
-\line(1,0){420}
-\end{center}
-
 \textbf{Ejercicio de programación:}
 
 Ejercicio para fortalecer los conocimientos adquiridos:
@@ -2916,15 +2839,13 @@ Nuestro modelo quedaría descrito de la siguiente forma:
 
 Y todos los métodos para obtener los parámetros del modelo descritos en el tema de regresión lineal pueden ser aplicados reemplazando $X$ por $h(X)$.
 
-\textbf{Nota para regresión lineal múltiple}
+\textbf{Modelado de estacionalidad}
 
 Mediante la generación de características derivadas de nuestras variables independientes es posible modelar diferentes patrones presentes en los datos, un ejemplo de ello es modelar estacionalidad, si una variable de entrada $x$ presenta este patrón la estacionalidad puede modelarse de la siguiente manera:
 
 $w_1*sin(2\pi x/ periodo) + w_2*cos(2\pi x/ periodo)$
 
-\textbf{Overfitting en regresión polinomial}
 
-Mientras mayor sea el valor de k, más grande es el riesgo de que nuestro modelo sufra del problema de overfitting, más adelante se explorarán técnicas para escoger hiperparámetros, de momento una solución viable es hacer uso de regularización L2 si se presenta este problema.
 
 \begin{center}
 \line(1,0){420}
@@ -3946,18 +3867,6 @@ Donde $p_i$ es la probabilidad de que una instancia pertenezca a la clase $i$ y 
 \end{algorithm}
 \FloatBarrier
 
-
-\underline{Overfitting en los árboles de decisión}
-
-Si nosotros no limitamos el número de nodos o tamaño del árbol podemos terminar con zonas de decisión muy pequeñas que clasifiquen perfectamente nuestro conjunto de datos de entrenamiento pero fallen al generalizar (clasificar datos fuera del dataset de entrenamiento), es por ello que para evitar existen dos acercamientos:
-
-\begin{enumerate}
-\item \textbf{Pre-poda:} Se suele limitar la profundidad del árbol, otras acciones de pre-poda incluyen limitar el número de nodos, limitar el número minimo de elementos que puede haber en un nodo interno, etc.
-\item \textbf{Post-poda:} Se suelen recorrer los nodos evaluando el efecto que tendría su eliminación usando una función de coste y un conjunto de datos de prueba.
-
-\end{enumerate}
-
-
 \textbf{Ventajas de los árboles de decisión}
 
 \begin{itemize}
@@ -4010,17 +3919,11 @@ Este algoritmo se basa en la idea de que dado un conjunto de datos linealmente s
 
 La manera en la cual se formula el modelo a partir de esta hipotesis y el proceso de optimización se sale del alcance de este libro debido a los requisitos para la deducción y descripción formal del módelo. Se motiva al lector que este interesado en el proceso que revise los siguientes contenidos.
 
-Lista de reproducción sobre algebra lineal:
-
-\url{https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab}
-
-Video donde se explica como se llega al módelo de SVM:
-
-\url{https://www.youtube.com/watch?v=_PwhiWxHK8o}
-
-Libro de alrededor de 100 páginas donde se explora a mayor detalle este algoritmo:
-
-\url{https://www.syncfusion.com/succinctly-free-ebooks/support-vector-machines-succinctly}
+\begin{itemize}
+\item \href {https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab}{Lista de reproducción sobre algebra lineal}
+\item \href{https://www.youtube.com/watch?v=_PwhiWxHK8o}{Video donde se explica cómo se llega al módelo de SVM}
+\item \href{https://www.syncfusion.com/succinctly-free-ebooks/support-vector-machines-succinctly}{Libro donde se explora a mayor detalle este algoritmo}
+\end{itemize}
 
 \textbf{Descripción y evolución del modelo}
 
@@ -4069,6 +3972,208 @@ Ejercicio para fortalecer los conocimientos adquiridos:
 
 \url{https://github.com/amr205/Introduccion-a-la-IA---Libro}
 
+\section{Overfitting y underfitting} \index{Overfitting y underfitting}
+
+Cuando se entrenan diferentes modelos para desempeñar las tareas de clasificación o regresión es probable que nos encontremos con problemas de overfitting o underfitting.
+
+\textbf{Overfitting}
+
+El problema de overfitting se presenta cuando el modelo se ha ajustado demasiado bien a los datos con los cuales fue entrenado (Aprendiendo incluso el ruido presente en nuestros datos de entrenamiento), por lo cual su capacidad de generalización \footnote{ La generalización es la capacidad de desempeñarse exitosamente las tareas de clasificación o regresión en datos que el modelo no ha observado. } es bastante mala.
+
+\textbf{Ruido vs Señal}
+
+La señal es la función o patrón "verdadera" que pretendemos extraer de nuestros datos. El ruido presente en los datos se puede dar por errores durante la medición, aleatoriedad presente en los datos o valores atípicos (Outliers) \footnote{ Los valores atípicos (Outliers) son aquellos valores que difieren significativamente del resto de los datos o que no pertenecen al dataset. }.
+
+
+\begin{figure}[ht]
+\centering\includegraphics[width=13cm]{ia/overfitting.png}
+\caption{Dos modelos con los mismos datos de entrada. (Izquierda) Modelo con overfitting, (Derecha) Modelo ajustado correctamente.}
+
+\label{fig:overfitting} 
+\end{figure}
+
+\textbf{Underfitting}
+
+Este es el problema contrario al overfitting, se da cuando nuestro modelo no es lo suficientemente expresivo para representar la relación entre los datos de entrada X y los datos de salida Y. En este caso nuestro modelo no se desempeña bien ni siquiera en nuestro set de entrenamiento.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=13cm]{ia/underfitting.png}
+\caption{Dos modelos con los mismos datos de entrada. (Izquierda) Modelo con underfitting, (Derecha) Modelo ajustado correctamente.}
+
+\label{fig:underfitting} 
+\end{figure}
+
+\FloatBarrier
+\textbf{¿Cómo detectar el overfitting o el underfitting?}
+
+Posteriormente en la parte TODO de este libro se tratan formas más avanzadas de detectar el overfitting o underfitting, por ahora basta con evaluar nuestros modelos (tema que se explorará más adelante en este capítulo) en el set de entrenamiento y el set de prueba.
+
+De manera general si nuestro desempeño en el set de entrenamiento es mucho mejor que nuestro desempeño en el set de prueba nuestro modelo tiene una alta probabilidad de sufrir overfitting.
+
+En cambio si nuestro desempeño en el set de entrenamiento y el set de prueba es bajo es probable que nuestro modelo sufra de underfitting.
+
+\textbf{¿Cómo combatir el overfitting?}
+
+A continuación se describen de manera general algunas maneras de prevenir el overfitting en nuestro modelo, algunos de estos temas serán tratados con más profundidad más adelante en el libro:
+
+\begin{itemize}
+\item \textbf{Recolectar más datos: } Usar más datos para el entrenamiento suele ayudar para mejorar la capacidad de generalización de nuestro modelo, sin embargo esto suele ser bastante costoso por lo cual se recomienda primero probar con otras maneras de combatir el overfitting.
+
+\item \textbf{Remover características o atributos en nuestros datos: } Si nuestro modelo tiene acceso a datos que no son relevantes para el problema es más fácil que nuestro modelo presente overfitting. Se puede hacer manualmente o utilizar algoritmos diseñados precisamente para realizar esta tarea.
+
+Por ejemplo supongamos que tenemos que predecir que fruta estamos analizando en base a una serie de características (color, altura, anchura, peso y hora del análisis), en este caso la última característica no es relevante, si la persona encargada siempre analizará las manzanas en la noche, un modelo con overfitting "pensaría" que una fruta analizada en la mañana no puede ser una manzana.
+
+\item \textbf{Early stopping: } Cuando se entrene el modelo con algoritmos de aprendizaje iterativos es posible medir el desempeño en cada iteración, por ende podría detenerse el proceso de aprendizaje cuando nuestro modelo deje de generalizar exitosamente y empiece a presentar overfitting.
+
+Esta técnica no suele recomendarse debido a que durante el entrenamiento se suele buscar minimizar o maximizar una función, si se usa early stopping esto deja de ser verdadero por lo cual es recomendable utilizar otras técnicas.
+
+\item \textbf{Regularización: } Estas técnicas fuerzan a nuestro modelo a ser más simple reduciendo el problema de overfitting en modelos complejos. La regularización es una de las maneras más recomendadas para combatir este problema.
+
+\end{itemize}
+
+Los modelos más complejos suelen tener predisposición al overfitting, y los modelos más simples al underfitting. 
+
+Algunos modelos y algoritmos de aprendizaje tienen sus propios parámetros, mediante el uso de un set de validación se pueden ajustar estos parámetros para evitar el overfitting o el underfitting.
+
+\section{Técnicas de regularización} \index{Técnicas de regularización}
+
+\subsection{Regularización L2 (Ridge penalisation)} \index{Regularización L2}
+
+Los modelos con overfitting suelen tener valores muy altos en sus parámetros, por lo cual al penalizar valores muy altos en los mismos se puede regularizar el modelo.
+
+La fórmula correspondiente a una función de coste J con regularización L2 es la siguiente:
+
+\begin{equation}
+J(X,Y,\theta) = cf(X,Y,\theta) + \lambda \sum_{j=1}^{n} {\theta_{j}}^{2}
+\end{equation}
+
+Donde:
+
+\begin{tabular}{l}
+	X son los atributos de nuestro set de entrenamiento\\
+	Y son las etiquetas o variable a predecir de nuestro set de entrenamiento\\
+	$\theta$ son los atributos del modelo\\
+	$cf(X,Y,\theta)$ es la función de coste o error sin regularizar de nuestro modelo\\
+	$\lambda$ es un parámetro que controla el nivel de regularización aplicado al modelo\\
+
+\end{tabular}
+
+La regularización de tipo L2 tiende a disminuir el valor de los parámetros del modelo sin llegar a fijar algunos en 0, en la figura \ref{fig:l2_regularization} se presenta un modelo de regresión polinomial de grado 9, aplicando distintos valores en $\lambda$ se puede apreciar el efecto resultante. 
+
+
+\begin{figure}[ht]
+\centering\includegraphics[width=12cm]{ia/l2_regularization.png}
+\caption{Ejemplo de una regresión polinomial de grado 9 con regularización L2, en cada figura se puede observar el valor de $\lambda$.}
+
+\label{fig:l2_regularization} 
+\end{figure}
+
+\FloatBarrier
+
+Cuando se tienen muchas características, la regularización l2 tiende a funcionar de una manera aproximada a lo que se muestra en la figura.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=13cm]{ia/l2_weights.png}
+\caption{Forma general en el cambio de los pesos de un modelo de acuerdo al cambio del valor de $\lambda$ en regularización l2.}
+
+\label{fig:l2_weights} 
+\end{figure}
+
+\subsection{Regularización L1 (Lasso penalisation)} \index{Regularización L1}
+
+
+La fórmula correspondiente a una función de coste J con regularización L1 es la siguiente:
+
+\begin{equation}
+J(X,Y,\theta) = cf(X,Y,\theta) + \lambda \sum_{j=1}^{n} | {\theta_{j}} |
+\end{equation}
+
+Donde:
+
+\begin{tabular}{l}
+	X son los atributos de nuestro set de entrenamiento\\
+	Y son las etiquetas o variable a predecir de nuestro set de entrenamiento\\
+	$\theta$ son los atributos del modelo\\
+	$cf(X,Y,\theta)$ es la función de coste o error sin regularizar de nuestro modelo\\
+	$\lambda$ es un parámetro que controla el nivel de regularización aplicado al modelo\\
+
+\end{tabular}
+
+La principal diferencia con regularización l2 es la manera en la cual disminuyen los pesos, ya que como se muestra en la figura \ref{fig:l1_weights} al aumentar el valor de $\lambda$ se van fijando en 0, por esta razón este tipo de regularización es usada para el proceso de selección de características, descartando aquellas que sean menos relevantes.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=13cm]{ia/l1_weights.png}
+\caption{Forma general en el cambio de los pesos de un modelo de acuerdo al cambio del valor de $\lambda$ en regularización l1.}
+
+\label{fig:l1_weights} 
+\end{figure}
+
+\FloatBarrier
+
+\subsection{Regularización en regresión lineal} \index{Regularización en regresión lineal}
+
+\textbf{Ridge Regression}
+
+Para implementar regresión lineal con regularización L2 basta con modificar la función de coste de la siguiente manera:
+
+\begin{equation}
+\label{eqn:mean_squared_error_modified_l2}
+J(\beta)=\frac{1}{2n} \sum_{i=1}^{n}\left (\hat{Y} - Y  \right )^{2} + \lambda \sum_{j=1}^{n} {\beta_{j}}^{2}
+\end{equation}
+
+Por lo cual, la actualización de los pesos sería la siguiente:
+
+\begin{equation}
+\label{eqn:linear_regression_gradient_descent_l2}
+\beta = \beta - \alpha \cdot \frac{1}{n} \left ( X' (\hat{Y}-Y ) + 2 \lambda \beta \right )
+\end{equation}
+
+\textbf{Lasso Regression}
+
+Para implementar regresión lineal con regularización L1 tenemos que modificar la función de coste de la siguiente manera:
+
+\begin{equation}
+\label{eqn:mean_squared_error_modified_l1}
+J(\beta)=\frac{1}{2n} \sum_{i=1}^{n}\left (\hat{Y} - Y  \right )^{2} + \lambda \sum_{j=1}^{n} {|\beta_{j}|}
+\end{equation}
+
+En este caso la actualización de los pesos dependerá del valor de $\beta_{j}$
+
+\begin{equation}
+\label{eqn:linear_regression_gradient_descent_l1}
+    \beta_j= 
+\begin{dcases}
+    \beta_j - \alpha \cdot \frac{1}{n} \left ( X_j (\hat{Y}-Y ) + \lambda \right ),& \text{si } \beta_j \geq 0\\
+    \beta_j - \alpha \cdot \frac{1}{n} \left ( X_j (\hat{Y}-Y ) - \lambda \right ),              & \text{si } \beta_j < 0
+\end{dcases} 
+\end{equation}
+
+\begin{center}
+\line(1,0){420}
+\end{center}
+
+\textbf{Overfitting en regresión polinomial}
+
+Mientras mayor sea el valor de k, más grande es el riesgo de que nuestro modelo sufra del problema de overfitting, más adelante se explorarán técnicas para escoger hiperparámetros, de momento una solución viable es hacer uso de regularización L2 si se presenta este problema.
+
+
+\underline{Overfitting en los árboles de decisión}
+
+Si nosotros no limitamos el número de nodos o tamaño del árbol podemos terminar con zonas de decisión muy pequeñas que clasifiquen perfectamente nuestro conjunto de datos de entrenamiento pero fallen al generalizar (clasificar datos fuera del dataset de entrenamiento), es por ello que para evitar existen dos acercamientos:
+
+\begin{enumerate}
+\item \textbf{Pre-poda:} Se suele limitar la profundidad del árbol, otras acciones de pre-poda incluyen limitar el número de nodos, limitar el número minimo de elementos que puede haber en un nodo interno, etc.
+\item \textbf{Post-poda:} Se suelen recorrer los nodos evaluando el efecto que tendría su eliminación usando una función de coste y un conjunto de datos de prueba.
+
+\end{enumerate}
+
+
+
+\chapterimage{chapter_head.pdf} % Chapter heading image
+
+\chapter{Aprendizaje no supervisado}
+
+\section{Introducción al capítulo} \index{Introducción al capítulo}
 %------------- ---------------------------------------------------------------------------
 %	BIBLIOGRAPHY
 %----------------------------------------------------------------------------------------
