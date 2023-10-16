@@ -4175,13 +4175,104 @@ Si nosotros no limitamos el número de nodos o tamaño del árbol podemos termin
 
 \section{Introducción al capítulo} \index{Introducción al capítulo}
 
-A diferencia del aprendizaje supervisado en el aprendizaje supervisado no tenemos las etiquetas o salidas Y que queremos obtener, en nuestro conjunto de datos unicamente contamos con los atributos X, todos los modelos de aprendizaje no supervisado tienen esta característica pero pueden tener distintos objetivos. Por ejemplo la generación de nuevos datos similares a los datos de entrenamiento, la modificación de los datos, el agrupamiento de los mismos o su compresión.
+A diferencia del aprendizaje supervisado en el aprendizaje supervisado no tenemos las etiquetas o salidas $Y$ que queremos obtener, en nuestro conjunto de datos unicamente contamos con los atributos $X$, todos los modelos de aprendizaje no supervisado tienen esta característica pero pueden tener distintos objetivos, por ejemplo la generación de nuevos datos similares a los datos de entrenamiento, la modificación de los datos, el agrupamiento de los mismos o su compresión.
 
+Los modelos de apredizaje no supervisado pueden clasificarse de acuerdo a la tarea que pueden realizar:
 
+\begin{itemize}
+  \item Clusterización
+  \item Reducción de dimensionalidad
+  \item Detección de anomalias
+  \item Generación de datos
+  \item Otras tareas
+\end{itemize}
 
+También es posible clasificarlos de acuerdo a si estos modelos se basan en la idea de variables latentes\footnote{Las variables latentes o variables ocultas son aquellas que no observamos pero se pueden inferir a partir de otras variables observables} $Z$. Estos modelos permiten capturar una estructura subyacente en los datos, generalmente de menor dimensionalidad, esto nos puede permitir comprimir los datos al pasar de los datos $X$ a sus variables latentes $Z$ o generar nuevos datos pasando de las variables latentes $Z$ a 
+datos $X$ \cite{prince2023understanding}.
 
+\section{Clusterización} \index{Clusterización}
 
-\cite{prince2023understanding}
+La clusterización consiste en asignar etiquetas a instancias de nuestro conjunto de datos no etiquetados.
+
+\newpage
+\textbf{Tipos de clusterización}
+
+Existen diferentes tipos de algoritmos de clusterización a continuación se describen algunos de los más populares \cite{Xu2015}:
+
+\begin{itemize}
+  \item \textbf{Algoritmos basados en particion}: La idea básica de estos algoritmos es ubicar el ``centro'' de k clusters en nuestros datos. 
+  \item \textbf{Algoritmos basados en densidad}: Este tipo de algoritmos asignan como clusters aquellas areas con alta densidad de instancias.
+  \item \textbf{Algoritmos basados en distribución}: Estos algoritmos parten de la siguiente idea, aquellas instancias generadas a partir de la misma distribución pertenecen al mismo cluster. 
+  \item \textbf{Algoritmos basados en jerarquía}: Estos algoritmos construyen una relación jerárquica entre las instancias.
+\end{itemize}
+
+Existen otros tipos de algoritmos como aquellos basados en teoría de fractales, teoría difusa, inteligencia de enjambre, etc.
+
+\begin{figure}[ht]
+\centering\includegraphics[width=7.5cm]{ia/k-means clustering.png}
+\caption{Clusterización basada en partición utilizando el algoritmo K-means}
+\label{fig:kmeans_clustering} 
+\end{figure}
+
+\begin{figure}[ht]
+\centering\includegraphics[width=7.5cm]{ia/dbscan clustering.png}
+\caption{Clusterización basada en densidad utilizando el algoritmo DBSCAN}
+\label{fig:dbscan_clustering} 
+\end{figure}
+
+\begin{figure}[ht]
+\centering\includegraphics[width=7.5cm]{ia/gmm clustering.png}
+\caption{Clusterización basada en distribución utilizando el algoritmo Gaussian Mixture Models}
+\label{fig:gmm_clustering} 
+\end{figure}
+
+\begin{figure}[ht]
+\centering\includegraphics[width=7.5cm]{ia/hierarchical clustering.png}
+\caption{Clusterización basada en jerarquía}
+\label{fig:hierarchical_clustering} 
+\end{figure}
+
+\subsection{K - means} \index{K - means}
+\label{subsection:k_means}
+
+Este algoritmo pretende encontrar $K$ centroides, cada ejemplo del conjunto de datos de entrenamiento pertenece a un centroide por lo cual el resultado son $K$ clusters.
+
+\textbf{Suposiciones del algoritmo}
+
+K-means es un algoritmo de aprendizaje no paramétrico por lo cual no realiza fuertes suposiciones sobre la forma de los clusters, de manera intuitiva se puede entender que este algoritmo asume que los elementos pertenecientes a un mismo cluster poseen caracteristicas $X$ similares.
+
+\textbf{Funcionamiento del algoritmo de K-means}
+
+Tendremos los siguientes elementos:
+
+\begin{itemize}
+\item  Un set de entrenamiento compuesto de las características $X$.
+\item El hiperparámetro $k$ que determina el número de centroides o clusters.
+\end{itemize}
+
+El algoritmo es el siguiente:
+\begin{enumerate}
+\item Se inicializan $k$ centroides $\mathrm{M}$ dentro del espacio de datos $X$, se puden elegir por ejemplo de forma aleatoria.
+\item Cada elemento de $X$ es asignado al cluster $\mu$ más cercano.
+\item Se actualiza la posición de cada centroide $\mu$ tomando la posición del promedio de los elementos asignados a el.
+\end{enumerate}
+
+Matemáticamente podemos entender que estamos minimizando la distancia de los centroides $\mathrm{M}$ a los elementos en $X$ pertenecientes al set $S$ donde cada $x$ fue asignado al cluster $\mu$.
+
+\begin{equation}
+J(X,Y,\theta) = cf(X,Y,\theta) + \lambda \sum_{j=1}^{n} | {\theta_{j}} |
+\end{equation}
+
+\begin{center}
+\line(1,0){420}
+\end{center}
+
+\textbf{Ejercicio de programación:}
+
+\begin{enumerate}
+\item En un lenguaje de programación matemático como Octave, Julia o Matlab resolver un problema de clusterización mediante k-means.
+\item En cualquier lenguaje de programación utilizar alguna librería como scikit-learn para resolver un problema de clasificación mediante k-means.
+\end{enumerate}
 
 %------------- ---------------------------------------------------------------------------
 %	BIBLIOGRAPHY

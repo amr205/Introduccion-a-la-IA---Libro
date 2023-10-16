@@ -2905,6 +2905,65 @@ J(\beta)=\frac{1}{2n} \sum_{i=1}^{n}\left (\hat{Y} - Y  \right )^{2} + \lambda \
 </ol>
 <h2 data-number="4.3" id="aprendizaje-no-supervisado"><span class="header-section-number">4.3</span> Aprendizaje no supervisado</h2>
 <strong>Introducción al capítulo</strong>
+<p>A diferencia del aprendizaje supervisado en el aprendizaje supervisado no tenemos las etiquetas o salidas <span class="math inline">\(Y\)</span> que queremos obtener, en nuestro conjunto de datos unicamente contamos con los atributos <span class="math inline">\(X\)</span>, todos los modelos de aprendizaje no supervisado tienen esta característica pero pueden tener distintos objetivos, por ejemplo la generación de nuevos datos similares a los datos de entrenamiento, la modificación de los datos, el agrupamiento de los mismos o su compresión.</p>
+<p>Los modelos de apredizaje no supervisado pueden clasificarse de acuerdo a la tarea que pueden realizar:</p>
+<ul>
+<li><p>Clusterización</p></li>
+<li><p>Reducción de dimensionalidad</p></li>
+<li><p>Detección de anomalias</p></li>
+<li><p>Generación de datos</p></li>
+<li><p>Otras tareas</p></li>
+</ul>
+<p>También es posible clasificarlos de acuerdo a si estos modelos se basan en la idea de variables latentes<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> <span class="math inline">\(Z\)</span>. Estos modelos permiten capturar una estructura subyacente en los datos, generalmente de menor dimensionalidad, esto nos puede permitir comprimir los datos al pasar de los datos <span class="math inline">\(X\)</span> a sus variables latentes <span class="math inline">\(Z\)</span> o generar nuevos datos pasando de las variables latentes <span class="math inline">\(Z\)</span> a datos <span class="math inline">\(X\)</span> <span class="citation" data-cites="prince2023understanding"></span>.</p>
+<strong>Clusterización</strong>
+<p>La clusterización consiste en asignar etiquetas a instancias de nuestro conjunto de datos no etiquetados.</p>
+<p><strong>Tipos de clusterización</strong></p>
+<p>Existen diferentes tipos de algoritmos de clusterización a continuación se describen algunos de los más populares <span class="citation" data-cites="Xu2015"></span>:</p>
+<ul>
+<li><p><strong>Algoritmos basados en particion</strong>: La idea básica de estos algoritmos es ubicar el “centro” de k clusters en nuestros datos.</p></li>
+<li><p><strong>Algoritmos basados en densidad</strong>: Este tipo de algoritmos asignan como clusters aquellas areas con alta densidad de instancias.</p></li>
+<li><p><strong>Algoritmos basados en distribución</strong>: Estos algoritmos parten de la siguiente idea, aquellas instancias generadas a partir de la misma distribución pertenecen al mismo cluster.</p></li>
+<li><p><strong>Algoritmos basados en jerarquía</strong>: Estos algoritmos construyen una relación jerárquica entre las instancias.</p></li>
+</ul>
+<p>Existen otros tipos de algoritmos como aquellos basados en teoría de fractales, teoría difusa, inteligencia de enjambre, etc.</p>
+<figure>
+<img src="pandocConversionMedia/ia/k-means clustering.png" id="fig:kmeans_clustering" style="width:7.5cm" alt="Clusterización basada en partición utilizando el algoritmo K-means" /><figcaption aria-hidden="true">Clusterización basada en partición utilizando el algoritmo K-means</figcaption>
+</figure>
+<figure>
+<img src="pandocConversionMedia/ia/dbscan clustering.png" id="fig:dbscan_clustering" style="width:7.5cm" alt="Clusterización basada en densidad utilizando el algoritmo DBSCAN" /><figcaption aria-hidden="true">Clusterización basada en densidad utilizando el algoritmo DBSCAN</figcaption>
+</figure>
+<figure>
+<img src="pandocConversionMedia/ia/gmm clustering.png" id="fig:gmm_clustering" style="width:7.5cm" alt="Clusterización basada en distribución utilizando el algoritmo Gaussian Mixture Models" /><figcaption aria-hidden="true">Clusterización basada en distribución utilizando el algoritmo Gaussian Mixture Models</figcaption>
+</figure>
+<figure>
+<img src="pandocConversionMedia/ia/hierarchical clustering.png" id="fig:hierarchical_clustering" style="width:7.5cm" alt="Clusterización basada en jerarquía" /><figcaption aria-hidden="true">Clusterización basada en jerarquía</figcaption>
+</figure>
+<strong>K - means</span> <span id="subsection:k_means" label="subsection:k_means">[subsection:k_means]</strong>
+<p>Este algoritmo pretende encontrar <span class="math inline">\(K\)</span> centroides, cada ejemplo del conjunto de datos de entrenamiento pertenece a un centroide por lo cual el resultado son <span class="math inline">\(K\)</span> clusters.</p>
+<p><strong>Suposiciones del algoritmo</strong></p>
+<p>K-means es un algoritmo de aprendizaje no paramétrico por lo cual no realiza fuertes suposiciones sobre la forma de los clusters, de manera intuitiva se puede entender que este algoritmo asume que los elementos pertenecientes a un mismo cluster poseen caracteristicas <span class="math inline">\(X\)</span> similares.</p>
+<p><strong>Funcionamiento del algoritmo de K-means</strong></p>
+<p>Tendremos los siguientes elementos:</p>
+<ul>
+<li><p>Un set de entrenamiento compuesto de las características <span class="math inline">\(X\)</span>.</p></li>
+<li><p>El hiperparámetro <span class="math inline">\(k\)</span> que determina el número de centroides o clusters.</p></li>
+</ul>
+<p>El algoritmo es el siguiente:</p>
+<ol>
+<li><p>Se inicializan <span class="math inline">\(k\)</span> centroides <span class="math inline">\(\mathrm{M}\)</span> dentro del espacio de datos <span class="math inline">\(X\)</span>, se puden elegir por ejemplo de forma aleatoria.</p></li>
+<li><p>Cada elemento de <span class="math inline">\(X\)</span> es asignado al cluster <span class="math inline">\(\mu\)</span> más cercano.</p></li>
+<li><p>Se actualiza la posición de cada centroide <span class="math inline">\(\mu\)</span> tomando la posición del promedio de los elementos asignados a el.</p></li>
+</ol>
+<p>Matemáticamente podemos entender que estamos minimizando la distancia de los centroides <span class="math inline">\(\mathrm{M}\)</span> a los elementos en <span class="math inline">\(X\)</span> pertenecientes al set <span class="math inline">\(S\)</span> donde cada <span class="math inline">\(x\)</span> fue asignado al cluster <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="math display">\[J(X,Y,\theta) = cf(X,Y,\theta) + \lambda \sum_{j=1}^{n} | {\theta_{j}} |\]</span></p>
+<div class="center">
+<p>(1,0)<span>420</span></p>
+</div>
+<p><strong>Ejercicio de programación:</strong></p>
+<ol>
+<li><p>En un lenguaje de programación matemático como Octave, Julia o Matlab resolver un problema de clusterización mediante k-means.</p></li>
+<li><p>En cualquier lenguaje de programación utilizar alguna librería como scikit-learn para resolver un problema de clasificación mediante k-means.</p></li>
+</ol>
 <h2 class="unnumbered" id="bibliography">Bibliography</h2>
 <p>Las referencias se pueden encontrar bien listadas y ordenadas en la versión pdf del libro</p>
  
@@ -2921,6 +2980,7 @@ J(\beta)=\frac{1}{2n} \sum_{i=1}^{n}\left (\hat{Y} - Y  \right )^{2} + \lambda \
 <li id="fn8" role="doc-endnote"><p>Dos sucesos aleatorios son independientes entre sí cuando la probabilidad de cada uno de ellos no está influida porque el otro suceso ocurra o no<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn9" role="doc-endnote"><p>La generalización es la capacidad de desempeñarse exitosamente las tareas de clasificación o regresión en datos que el modelo no ha observado.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn10" role="doc-endnote"><p>Los valores atípicos (Outliers) son aquellos valores que difieren significativamente del resto de los datos o que no pertenecen al dataset.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11" role="doc-endnote"><p>Las variables latentes o variables ocultas son aquellas que no observamos pero se pueden inferir a partir de otras variables observables<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 </body>
