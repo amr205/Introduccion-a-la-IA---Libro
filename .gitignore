@@ -12,6 +12,7 @@
 
 #And not these folders...
 !/machine-learning/
+!/machine-learning/**
 !/output/
 !/output/**
 !/Pictures/
